@@ -1,0 +1,7 @@
+{
+  "name": "rointe-pal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
