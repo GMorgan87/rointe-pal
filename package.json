@@ -30,8 +30,10 @@
     "@firebase/auth": "^1.10.6",
     "@firebase/database": "^1.0.19",
     "@ionic/angular": "^8.0.0",
+    "assert": "^2.1.0",
     "equation-connect": "^1.7.0",
     "ionicons": "^7.0.0",
+    "process": "^0.11.10",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
