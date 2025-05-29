@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{installation?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{installation?.name}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-accordion-group>
+    @for (zone of installation?.zones | keyvalue; track zone) {
+      <app-zone-card [zone]="zone.value" [id]="zone.key"></app-zone-card>
+    }
+    @empty {
+      <ion-item>There are no zones</ion-item>
+    }
+  </ion-accordion-group>
+
+</ion-content>

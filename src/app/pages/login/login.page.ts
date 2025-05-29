@@ -22,15 +22,18 @@ export class LoginPage {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+    this.RointeService.initialise('gmorgan87@hotmail.co.uk', '0770I0i949i/R').then(res => {
+      this.router.navigateByUrl('/installations', { replaceUrl: true });
+    })
   }
+
 
   async onLogin() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
-      await this.RointeService.getInstallations(email, password)
-      console.log('Logging in with:', email, password);
+      await this.RointeService.initialise(email, password)
       // TODO: Call authentication service
-      this.router.navigateByUrl('/home', { replaceUrl: true });
+      this.router.navigateByUrl('/installations', { replaceUrl: true });
     }
   }
 }

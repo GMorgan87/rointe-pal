@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Installations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Installations</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list [inset]="true">
+    @for (item of installations | keyvalue; track item) {
+      <app-installation-card [installation]="item.value" [id]="item.key"></app-installation-card>
+    }
+    @empty {
+      <ion-item>There are no installations</ion-item>
+    }
+  </ion-list>
+</ion-content>

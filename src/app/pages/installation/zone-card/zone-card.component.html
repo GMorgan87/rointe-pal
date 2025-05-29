@@ -1,0 +1,16 @@
+<ion-accordion [value]="id()" toggleIcon="caret-down-circle" toggleIconSlot="start">
+  <ion-item slot="header">
+    <ion-label>{{zone().name}}</ion-label>
+  </ion-item>
+  <ion-item slot="content">
+    <ion-list>
+      @for (device of zone().devices | keyvalue; track $index) {
+        <app-device-card [id]="device.key"></app-device-card>
+      }
+      @empty {
+        No Devices
+      }
+    </ion-list>
+  </ion-item>
+</ion-accordion>
+

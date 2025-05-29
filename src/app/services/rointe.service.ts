@@ -12,6 +12,7 @@ export class RointeService {
 
   app: {app: FirebaseApp, auth: any, database: Database}
   user: User | undefined
+  installations: InstallationsType | undefined
 
   constructor() {
     this.app = init(1)
@@ -22,14 +23,15 @@ export class RointeService {
   // signIn = async (email: string, password: string) => {
   //   return login(email, password)
   // }
-  async getInstallations(userName: string, password: string): Promise<InstallationsType>{
+  async initialise(userName: string, password: string): Promise<InstallationsType>{
     // const app = init(1)
     return this.loginAndFetchInstallations(userName, password)
   }
 
   loginAndFetchInstallations = async (email: string, password: string): Promise<InstallationsType> => {
     this.user = await login(email, password);
-    return await getInstallations(this.user.uid);
+    this.installations = await getInstallations(this.user.uid);
+    return this.installations
   };
 
   getDbData(){
